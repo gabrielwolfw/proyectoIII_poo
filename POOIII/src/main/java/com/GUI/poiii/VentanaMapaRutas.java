@@ -26,7 +26,61 @@ public class VentanaMapaRutas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jmnMenu = new javax.swing.JMenu();
+        MapaRutas = new javax.swing.JMenu();
+        MapaGasolineras = new javax.swing.JMenu();
+        MisAutos = new javax.swing.JMenu();
+        Admin = new javax.swing.JMenu();
+        Salir = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jmnMenu.setText("=");
+
+        MapaRutas.setText("Mapa de Rutas");
+        MapaRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MapaRutasActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(MapaRutas);
+
+        MapaGasolineras.setText("Mapa de Gasolineras");
+        MapaGasolineras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MapaGasolinerasActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(MapaGasolineras);
+
+        MisAutos.setText("Mis autos");
+        MisAutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MisAutosActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(MisAutos);
+
+        Admin.setText("Administrador");
+        Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(Admin);
+
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(Salir);
+
+        jMenuBar2.add(jmnMenu);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -36,11 +90,36 @@ public class VentanaMapaRutas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 635, Short.MAX_VALUE)
+            .addGap(0, 612, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MapaRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapaRutasActionPerformed
+        VentanaMapaRutas ventanaMapaRutas = new VentanaMapaRutas();
+        ventanaMapaRutas.setVisible(true);
+    }//GEN-LAST:event_MapaRutasActionPerformed
+
+    private void MapaGasolinerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapaGasolinerasActionPerformed
+        VentanaMapaGasolineras ventanaMapaGasolineras = new VentanaMapaGasolineras();
+        ventanaMapaGasolineras.setVisible(true);
+    }//GEN-LAST:event_MapaGasolinerasActionPerformed
+
+    private void MisAutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MisAutosActionPerformed
+        FrmMisAutos frmMisAutos = new FrmMisAutos();
+        frmMisAutos.setVisible(true);
+    }//GEN-LAST:event_MisAutosActionPerformed
+
+    private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
+        VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
+        ventanaAdministrador.setVisible(true);
+    }//GEN-LAST:event_AdminActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        FrmMisAutos frmMisAutos = new FrmMisAutos();
+        frmMisAutos.setVisible(true);
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +157,12 @@ public class VentanaMapaRutas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Admin;
+    private javax.swing.JMenu MapaGasolineras;
+    private javax.swing.JMenu MapaRutas;
+    private javax.swing.JMenu MisAutos;
+    private javax.swing.JMenu Salir;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenu jmnMenu;
     // End of variables declaration//GEN-END:variables
 }

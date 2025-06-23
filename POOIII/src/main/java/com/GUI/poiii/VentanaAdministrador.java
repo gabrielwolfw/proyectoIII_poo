@@ -8,12 +8,12 @@ package com.GUI.poiii;
  *
  * @author mishe
  */
-public class VentanaPrincipal extends javax.swing.JFrame {
+public class VentanaAdministrador extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaPrincipal
+     * Creates new form VentanaAdministrador
      */
-    public VentanaPrincipal() {
+    public VentanaAdministrador() {
         initComponents();
     }
 
@@ -26,7 +26,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem3 = new javax.swing.JMenuItem();
+        btnCiudades = new javax.swing.JButton();
+        btnConexiones = new javax.swing.JButton();
+        btnGasolineras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jmnMenu = new javax.swing.JMenu();
@@ -36,10 +39,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Admin = new javax.swing.JMenu();
         Salir = new javax.swing.JMenu();
 
-        jMenuItem3.setText("jMenuItem3");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
+
+        btnCiudades.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        btnCiudades.setText("CIUDADES");
+        btnCiudades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCiudadesActionPerformed(evt);
+            }
+        });
+
+        btnConexiones.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        btnConexiones.setText("CONEXIONES");
+        btnConexiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConexionesActionPerformed(evt);
+            }
+        });
+
+        btnGasolineras.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        btnGasolineras.setText("GASOLINERAS");
+        btnGasolineras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGasolinerasActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        jLabel1.setText("Bienvenido a el panel de administración de la aplicación");
 
         jLabel3.setBackground(new java.awt.Color(204, 255, 204));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/MIK.png"))); // NOI18N
@@ -97,17 +125,37 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(450, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCiudades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGasolineras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConexiones, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(btnCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnGasolineras, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConexiones, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,6 +186,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         frmMisAutos.setVisible(true);
     }//GEN-LAST:event_SalirActionPerformed
 
+    private void btnCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiudadesActionPerformed
+        FrmCiudades frmCiudades = new FrmCiudades();
+        frmCiudades.setVisible(true);
+    }//GEN-LAST:event_btnCiudadesActionPerformed
+
+    private void btnGasolinerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGasolinerasActionPerformed
+        FrmEstacionDeServicio frmEstacionDeServicio = new FrmEstacionDeServicio();
+        frmEstacionDeServicio.setVisible(true);
+    }//GEN-LAST:event_btnGasolinerasActionPerformed
+
+    private void btnConexionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConexionesActionPerformed
+        FrmConexiones frmConexiones = new FrmConexiones();
+        frmConexiones.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConexionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,20 +218,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaPrincipal().setVisible(true);
+                new VentanaAdministrador().setVisible(true);
             }
         });
     }
@@ -179,9 +242,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MapaRutas;
     private javax.swing.JMenu MisAutos;
     private javax.swing.JMenu Salir;
+    private javax.swing.JButton btnCiudades;
+    private javax.swing.JButton btnConexiones;
+    private javax.swing.JButton btnGasolineras;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu jmnMenu;
     // End of variables declaration//GEN-END:variables
 }
