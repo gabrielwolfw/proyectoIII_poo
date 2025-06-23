@@ -26,21 +26,117 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jLabel3 = new javax.swing.JLabel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jmnMenu = new javax.swing.JMenu();
+        MapaRutas = new javax.swing.JMenu();
+        MapaGasolineras = new javax.swing.JMenu();
+        MisAutos = new javax.swing.JMenu();
+        Admin = new javax.swing.JMenu();
+        Salir = new javax.swing.JMenu();
+
+        jMenuItem3.setText("jMenuItem3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel3.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/MIK.png"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(300, 300));
+        jLabel3.setMinimumSize(new java.awt.Dimension(200, 200));
+        jLabel3.setPreferredSize(new java.awt.Dimension(300, 300));
+
+        jmnMenu.setText("=");
+
+        MapaRutas.setText("Mapa de Rutas");
+        MapaRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MapaRutasActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(MapaRutas);
+
+        MapaGasolineras.setText("Mapa de Gasolineras");
+        MapaGasolineras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MapaGasolinerasActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(MapaGasolineras);
+
+        MisAutos.setText("Mis autos");
+        MisAutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MisAutosActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(MisAutos);
+
+        Admin.setText("Administrador");
+        Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(Admin);
+
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+        jmnMenu.add(Salir);
+
+        jMenuBar2.add(jmnMenu);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(450, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MapaRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapaRutasActionPerformed
+        VentanaMapaRutas ventanaMapaRutas = new VentanaMapaRutas();
+        ventanaMapaRutas.setVisible(true);
+    }//GEN-LAST:event_MapaRutasActionPerformed
+
+    private void MapaGasolinerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MapaGasolinerasActionPerformed
+        VentanaMapaGasolineras ventanaMapaGasolineras = new VentanaMapaGasolineras();
+        ventanaMapaGasolineras.setVisible(true);
+    }//GEN-LAST:event_MapaGasolinerasActionPerformed
+
+    private void MisAutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MisAutosActionPerformed
+        FrmMisAutos frmMisAutos = new FrmMisAutos();
+        frmMisAutos.setVisible(true);
+    }//GEN-LAST:event_MisAutosActionPerformed
+
+    private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
+        FrmAdministrador frmAdministrador = new FrmAdministrador();
+        frmAdministrador.setVisible(true);
+    }//GEN-LAST:event_AdminActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        FrmMisAutos frmMisAutos = new FrmMisAutos();
+        frmMisAutos.setVisible(true);
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +174,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Admin;
+    private javax.swing.JMenu MapaGasolineras;
+    private javax.swing.JMenu MapaRutas;
+    private javax.swing.JMenu MisAutos;
+    private javax.swing.JMenu Salir;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenu jmnMenu;
     // End of variables declaration//GEN-END:variables
 }
