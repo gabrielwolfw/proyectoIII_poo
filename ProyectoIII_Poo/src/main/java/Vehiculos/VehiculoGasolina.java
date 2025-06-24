@@ -9,18 +9,18 @@ package Vehiculos;
  * @author isaac
  */
 public class VehiculoGasolina extends Vehiculo{
-    private tipoGasolina tipoGasolina;
+    private Combustible tipoGasolina;
 
-    public VehiculoGasolina(tipoGasolina tipoGasolina, String modelo, int placa) {
+    public VehiculoGasolina(Combustible tipoGasolina, String modelo, int placa) {
         super(modelo, placa);
         this.tipoGasolina = tipoGasolina;
     }
 
-    public tipoGasolina getTipoGasolina() {
+    public Combustible getTipoGasolina() {
         return tipoGasolina;
     }
 
-    public void setTipoGasolina(tipoGasolina tipoGasolina) {
+    public void setTipoGasolina(Combustible tipoGasolina) {
         this.tipoGasolina = tipoGasolina;
     }
     

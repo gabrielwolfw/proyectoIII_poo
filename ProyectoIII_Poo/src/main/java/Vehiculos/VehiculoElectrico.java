@@ -9,18 +9,18 @@ package Vehiculos;
  * @author isaac
  */
 public class VehiculoElectrico extends Vehiculo{
-    private tipoConector tipoConector;
+    private Conector tipoConector;
 
-    public VehiculoElectrico(tipoConector tipoConector, String modelo, int placa) {
+    public VehiculoElectrico(Conector tipoConector, String modelo, int placa) {
         super(modelo, placa);
         this.tipoConector = tipoConector;
     }
 
-    public tipoConector getTipoConector() {
+    public Conector getTipoConector() {
         return tipoConector;
     }
 
-    public void setTipoConector(tipoConector tipoConector) {
+    public void setTipoConector(Conector tipoConector) {
         this.tipoConector = tipoConector;
     }
     
