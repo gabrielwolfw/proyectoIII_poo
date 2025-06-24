@@ -4,71 +4,17 @@
  */
 package vista;
 
-import javax.swing.*;
-import java.awt.*;
+import controlador.ControladorApp;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mishe
  */
 public class VentanaAdministrador extends javax.swing.JFrame {
-
-    // Llaves para cada tarjeta
-    private static final String PANEL_CIUDADES    = "CIUDADES";
-    private static final String PANEL_GASOLINERAS = "GASOLINERAS";
-    private static final String PANEL_CONEXIONES  = "CONEXIONES";
-
-    // Componentes
-    private JPanel cards;          // Panel con CardLayout
-    private JMenuItem miCiudades;
-    private JMenuItem miGasolineras;
-    private JMenuItem miConexiones;
-    private JMenuItem miSalir;
-    
+        private ControladorApp controlador = new ControladorApp();
     public VentanaAdministrador() {
         initComponents();
-    }
-
-        private void Components() {
-        // 1) Configuración básica de la ventana
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(900, 600);
-        setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-
-        // 2) Creamos el CardLayout y añadimos los formularios
-        cards = new JPanel(new CardLayout());
-        cards.add(new FrmCiudades(),           PANEL_CIUDADES);
-        cards.add(new FrmEstacionDeServicio(), PANEL_GASOLINERAS);
-        cards.add(new FrmConexiones(),         PANEL_CONEXIONES);
-        add(cards, BorderLayout.CENTER);
-
-        // 3) Construimos la barra de menú
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("Opciones");
-
-        miCiudades    = new JMenuItem("Ciudades");
-        miGasolineras = new JMenuItem("Gasolineras");
-        miConexiones  = new JMenuItem("Conexiones");
-        miSalir       = new JMenuItem("Salir");
-
-        menu.add(miCiudades);
-        menu.add(miGasolineras);
-        menu.add(miConexiones);
-        menu.addSeparator();
-        menu.add(miSalir);
-        menuBar.add(menu);
-        setJMenuBar(menuBar);
-
-        // 4) Asociamos ActionListeners a cada ítem
-        miCiudades.addActionListener(e -> switchTo(PANEL_CIUDADES));
-        miGasolineras.addActionListener(e -> switchTo(PANEL_GASOLINERAS));
-        miConexiones.addActionListener(e -> switchTo(PANEL_CONEXIONES));
-        miSalir.addActionListener(e -> dispose());
-    }
-
-    private void switchTo(String card) {
-        CardLayout cl = (CardLayout) cards.getLayout();
-        cl.show(cards, card);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,15 +26,16 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     private void initComponents() {
 
         btnCiudades = new javax.swing.JButton();
-        btnConexiones = new javax.swing.JButton();
+        btnConectores = new javax.swing.JButton();
         btnGasolineras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnConexiones1 = new javax.swing.JButton();
+        btnConectores1 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jmnMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -103,11 +50,11 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        btnConexiones.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
-        btnConexiones.setText("CONEXIONES");
-        btnConexiones.addActionListener(new java.awt.event.ActionListener() {
+        btnConectores.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        btnConectores.setText("CONECTORES");
+        btnConectores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConexionesActionPerformed(evt);
+                btnConectoresActionPerformed(evt);
             }
         });
 
@@ -128,6 +75,22 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jLabel3.setMinimumSize(new java.awt.Dimension(200, 200));
         jLabel3.setPreferredSize(new java.awt.Dimension(300, 300));
 
+        btnConexiones1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        btnConexiones1.setText("CONEXIONES");
+        btnConexiones1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConexiones1ActionPerformed(evt);
+            }
+        });
+
+        btnConectores1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        btnConectores1.setText("COMBUSTIBLE");
+        btnConectores1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConectores1ActionPerformed(evt);
+            }
+        });
+
         jmnMenu.setText("=");
 
         jMenuItem1.setText("Mapa de Rutas");
@@ -145,14 +108,6 @@ public class VentanaAdministrador extends javax.swing.JFrame {
             }
         });
         jmnMenu.add(jMenuItem2);
-
-        jMenuItem4.setText("Mis autos");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jmnMenu.add(jMenuItem4);
 
         jMenuItem5.setText("Administrador");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -186,11 +141,17 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCiudades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGasolineras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConexiones, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGasolineras, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCiudades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnConexiones1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnConectores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnConectores1)
+                        .addGap(47, 47, 47))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,15 +160,19 @@ public class VentanaAdministrador extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addComponent(btnCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(18, 18, 18)
                         .addComponent(btnGasolineras, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnConexiones, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnConexiones1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConectores, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConectores1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -215,16 +180,19 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiudadesActionPerformed
-
+            Frm_Ciudades ventana = new Frm_Ciudades(controlador);
+    ventana.setVisible(true);
     }//GEN-LAST:event_btnCiudadesActionPerformed
 
     private void btnGasolinerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGasolinerasActionPerformed
-
+            Frm_Estaciones ventana = new Frm_Estaciones(controlador);
+    ventana.setVisible(true);
     }//GEN-LAST:event_btnGasolinerasActionPerformed
 
-    private void btnConexionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConexionesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConexionesActionPerformed
+    private void btnConectoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectoresActionPerformed
+            Frm_Conectores ventana = new Frm_Conectores(controlador);
+    ventana.setVisible(true);
+    }//GEN-LAST:event_btnConectoresActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
             this.dispose();
@@ -238,23 +206,48 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         ventanaMapaGasolineras.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-            this.dispose();
-            FrmMisAutos frmMisAutos = new FrmMisAutos();
-        frmMisAutos.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-            this.dispose();
-            VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
+               // Pide la contraseña al usuario
+    String pwd = JOptionPane.showInputDialog(
+        this,
+        "Ingrese la contraseña de administrador:",
+        "Autenticación requerida",
+        JOptionPane.PLAIN_MESSAGE
+    );
+    // Si presionó Cancelar o no escribió nada, aborta
+    if (pwd == null || pwd.isEmpty()) {
+        return;
+    }
+    // Valida la contraseña
+    if ("0123".equals(pwd)) {
+        // Cierra la ventana actual y abre el panel de admin
+        this.dispose();
+        VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
         ventanaAdministrador.setVisible(true);
+    } else {
+        // Muestra error y no permite el acceso
+        JOptionPane.showMessageDialog(
+            this,
+            "Contraseña incorrecta. Acceso denegado.",
+            "Error de autenticación",
+            JOptionPane.ERROR_MESSAGE
+        );
+    }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-            this.dispose();
-            FrmSalir vl = new FrmSalir();
-        vl.setVisible(true);
+
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void btnConexiones1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConexiones1ActionPerformed
+            Frm_Conexiones ventana = new Frm_Conexiones(controlador);
+    ventana.setVisible(true);
+    }//GEN-LAST:event_btnConexiones1ActionPerformed
+
+    private void btnConectores1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectores1ActionPerformed
+            Frm_Combustibles ventana = new Frm_Combustibles(controlador);
+    ventana.setVisible(true);
+    }//GEN-LAST:event_btnConectores1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,14 +286,15 @@ public class VentanaAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCiudades;
-    private javax.swing.JButton btnConexiones;
+    private javax.swing.JButton btnConectores;
+    private javax.swing.JButton btnConectores1;
+    private javax.swing.JButton btnConexiones1;
     private javax.swing.JButton btnGasolineras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenu jmnMenu;

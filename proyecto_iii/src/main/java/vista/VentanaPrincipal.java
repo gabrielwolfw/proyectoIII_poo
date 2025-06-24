@@ -6,6 +6,7 @@ package vista;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,7 +37,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jmnMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -70,14 +70,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         jmnMenu.add(jMenuItem2);
-
-        jMenuItem4.setText("Mis autos");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jmnMenu.add(jMenuItem4);
 
         jMenuItem5.setText("Administrador");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -119,11 +111,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-            this.dispose();
-            VentanaMisAutos frmMisAutos = new VentanaMisAutos();
-        frmMisAutos.setVisible(true);    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
             this.dispose();
             VentanaSalir vl = new VentanaSalir();
@@ -142,9 +129,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaMapaGasolineras.setVisible(true);    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-            this.dispose();
-            VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
+               // Pide la contraseña al usuario
+    String pwd = JOptionPane.showInputDialog(
+        this,
+        "Ingrese la contraseña de administrador:",
+        "Autenticación requerida",
+        JOptionPane.PLAIN_MESSAGE
+    );
+    // Si presionó Cancelar o no escribió nada, aborta
+    if (pwd == null || pwd.isEmpty()) {
+        return;
+    }
+    // Valida la contraseña
+    if ("0123".equals(pwd)) {
+        // Cierra la ventana actual y abre el panel de admin
+        this.dispose();
+        VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
         ventanaAdministrador.setVisible(true);
+    } else {
+        // Muestra error y no permite el acceso
+        JOptionPane.showMessageDialog(
+            this,
+            "Contraseña incorrecta. Acceso denegado.",
+            "Error de autenticación",
+            JOptionPane.ERROR_MESSAGE
+        );
+    }
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -189,7 +199,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
