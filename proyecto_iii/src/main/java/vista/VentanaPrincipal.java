@@ -36,7 +36,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jmnMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -62,14 +61,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         jmnMenu.add(jMenuItem1);
-
-        jMenuItem2.setText("Mapa de Gasolineras");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jmnMenu.add(jMenuItem2);
 
         jMenuItem5.setText("Administrador");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -111,52 +102,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-            this.dispose();
-            VentanaSalir vl = new VentanaSalir();
-        vl.setVisible(true);
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-            this.dispose();
-            VentanaMapaRutas ventanaMapaRutas = new VentanaMapaRutas();
-        ventanaMapaRutas.setVisible(true);
+        this.dispose();
+        Frm_Conectores ventana = new Frm_Conectores(controlador);
+        ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-            this.dispose();
-            VentanaMapaGasolineras ventanaMapaGasolineras = new VentanaMapaGasolineras();
-        ventanaMapaGasolineras.setVisible(true);    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-               // Pide la contraseña al usuario
-    String pwd = JOptionPane.showInputDialog(
-        this,
-        "Ingrese la contraseña de administrador:",
-        "Autenticación requerida",
-        JOptionPane.PLAIN_MESSAGE
-    );
-    // Si presionó Cancelar o no escribió nada, aborta
-    if (pwd == null || pwd.isEmpty()) {
-        return;
-    }
-    // Valida la contraseña
-    if ("0123".equals(pwd)) {
-        // Cierra la ventana actual y abre el panel de admin
-        this.dispose();
-        VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
-        ventanaAdministrador.setVisible(true);
-    } else {
-        // Muestra error y no permite el acceso
-        JOptionPane.showMessageDialog(
+        // Pide la contraseña al usuario
+        String pwd = JOptionPane.showInputDialog(
             this,
-            "Contraseña incorrecta. Acceso denegado.",
-            "Error de autenticación",
-            JOptionPane.ERROR_MESSAGE
+            "Ingrese la contraseña de administrador:",
+            "Autenticación requerida",
+            JOptionPane.PLAIN_MESSAGE
         );
-    }
-        
+        // Si presionó Cancelar o no escribió nada, aborta
+        if (pwd == null || pwd.isEmpty()) {
+            return;
+        }
+        // Valida la contraseña
+        if ("0123".equals(pwd)) {
+            // Cierra la ventana actual y abre el panel de admin
+            this.dispose();
+            VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
+            ventanaAdministrador.setVisible(true);
+        } else {
+            // Muestra error y no permite el acceso
+            JOptionPane.showMessageDialog(
+                this,
+                "Contraseña incorrecta. Acceso denegado.",
+                "Error de autenticación",
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +180,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;

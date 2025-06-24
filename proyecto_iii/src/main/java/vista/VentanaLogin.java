@@ -9,12 +9,13 @@ package vista;
  * @author mishe
  */
 
+import controlador.ControladorApp;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class VentanaLogin extends javax.swing.JFrame {
-
+    private ControladorApp controlador = new ControladorApp();
     private Map<String, String> users = new HashMap<>();
      
     public VentanaLogin() {
@@ -147,8 +148,8 @@ public class VentanaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        VentanaRegistro ventanaRegistro = new VentanaRegistro();
-        ventanaRegistro.setVisible(true);
+            Frm_Register ventana = new Frm_Register(controlador);
+    ventana.setVisible(true);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
