@@ -135,32 +135,31 @@ public class VentanaMapaRutas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-            this.dispose();
-            VentanaMapaRutas ventanaMapaRutas = new VentanaMapaRutas();
+        this.dispose();
+        VentanaMapaRutas ventanaMapaRutas = new VentanaMapaRutas();
         ventanaMapaRutas.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-            this.dispose();
-            VentanaMapaGasolineras ventanaMapaGasolineras = new VentanaMapaGasolineras();
-        ventanaMapaGasolineras.setVisible(true);
+        this.dispose();
+        VentanaMapaGasolineras ventanaMapaGasolineras = new VentanaMapaGasolineras();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-            this.dispose();
-            FrmMisAutos frmMisAutos = new FrmMisAutos();
-        frmMisAutos.setVisible(true);
+        this.dispose();
+        VentanaMisAutos frmMisAutos = new VentanaMisAutos();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-            this.dispose();
-            VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
+        this.dispose();
+        VentanaAdministrador ventanaAdministrador = new VentanaAdministrador();
         ventanaAdministrador.setVisible(true);
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-            this.dispose();
-            FrmSalir vl = new FrmSalir();
+        this.dispose();
+        VentanaSalir vl = new VentanaSalir();
         vl.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 

@@ -4,19 +4,72 @@
  */
 package vista;
 
+import javax.swing.*;
+import java.awt.*;
 /**
  *
  * @author mishe
  */
 public class VentanaAdministrador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaAdministrador
-     */
+    // Llaves para cada tarjeta
+    private static final String PANEL_CIUDADES    = "CIUDADES";
+    private static final String PANEL_GASOLINERAS = "GASOLINERAS";
+    private static final String PANEL_CONEXIONES  = "CONEXIONES";
+
+    // Componentes
+    private JPanel cards;          // Panel con CardLayout
+    private JMenuItem miCiudades;
+    private JMenuItem miGasolineras;
+    private JMenuItem miConexiones;
+    private JMenuItem miSalir;
+    
     public VentanaAdministrador() {
         initComponents();
     }
 
+        private void Components() {
+        // 1) Configuración básica de la ventana
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setSize(900, 600);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        // 2) Creamos el CardLayout y añadimos los formularios
+        cards = new JPanel(new CardLayout());
+        cards.add(new FrmCiudades(),           PANEL_CIUDADES);
+        cards.add(new FrmEstacionDeServicio(), PANEL_GASOLINERAS);
+        cards.add(new FrmConexiones(),         PANEL_CONEXIONES);
+        add(cards, BorderLayout.CENTER);
+
+        // 3) Construimos la barra de menú
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("Opciones");
+
+        miCiudades    = new JMenuItem("Ciudades");
+        miGasolineras = new JMenuItem("Gasolineras");
+        miConexiones  = new JMenuItem("Conexiones");
+        miSalir       = new JMenuItem("Salir");
+
+        menu.add(miCiudades);
+        menu.add(miGasolineras);
+        menu.add(miConexiones);
+        menu.addSeparator();
+        menu.add(miSalir);
+        menuBar.add(menu);
+        setJMenuBar(menuBar);
+
+        // 4) Asociamos ActionListeners a cada ítem
+        miCiudades.addActionListener(e -> switchTo(PANEL_CIUDADES));
+        miGasolineras.addActionListener(e -> switchTo(PANEL_GASOLINERAS));
+        miConexiones.addActionListener(e -> switchTo(PANEL_CONEXIONES));
+        miSalir.addActionListener(e -> dispose());
+    }
+
+    private void switchTo(String card) {
+        CardLayout cl = (CardLayout) cards.getLayout();
+        cl.show(cards, card);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,21 +215,15 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiudadesActionPerformed
-            this.dispose();
-            FrmCiudades frmCiudades = new FrmCiudades();
-        frmCiudades.setVisible(true);
+
     }//GEN-LAST:event_btnCiudadesActionPerformed
 
     private void btnGasolinerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGasolinerasActionPerformed
-            this.dispose();
-            FrmEstacionDeServicio frmEstacionDeServicio = new FrmEstacionDeServicio();
-        frmEstacionDeServicio.setVisible(true);
+
     }//GEN-LAST:event_btnGasolinerasActionPerformed
 
     private void btnConexionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConexionesActionPerformed
-            this.dispose();
-            FrmConexiones frmConexiones = new FrmConexiones();
-        frmConexiones.setVisible(true);        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnConexionesActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

@@ -121,12 +121,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
             this.dispose();
-            FrmMisAutos frmMisAutos = new FrmMisAutos();
+            VentanaMisAutos frmMisAutos = new VentanaMisAutos();
         frmMisAutos.setVisible(true);    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
             this.dispose();
-            FrmSalir vl = new FrmSalir();
+            VentanaSalir vl = new VentanaSalir();
         vl.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
