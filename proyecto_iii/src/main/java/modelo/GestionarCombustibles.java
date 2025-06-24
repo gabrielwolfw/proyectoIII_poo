@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GestionarCombustibles implements IGestionar<Combustible>, Serializable {
     private List<Combustible> combustibles;
-    private final String archivo = "../Recursos/combustibles.dat";
+    private final String archivo = "Recursos/combustibles.dat";
 
     public GestionarCombustibles() {
         combustibles = leerArchivo();

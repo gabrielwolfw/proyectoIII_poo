@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GestionarCiudades implements IGestionar<Ciudad>, Serializable {
     private List<Ciudad> ciudades;
-    private final String archivo = "../Recursos/ciudades.dat";
+    private final String archivo = "Recursos/ciudades.dat";
 
     public GestionarCiudades() {
         ciudades = leerArchivo();

@@ -16,6 +16,11 @@ public class Conexion implements Serializable {
         this.kilometros = kilometros;
         this.minutos = minutos;
     }
+    
+    public Conexion(String ciudadOrigen, String ciudadDestino) {
+        this.ciudadOrigen = ciudadOrigen;
+        this.ciudadDestino = ciudadDestino;
+    }
 
     public int getId() {
         return id;

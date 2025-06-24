@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GestionarConectores implements IGestionar<Conector>, Serializable {
     private List<Conector> conectores;
-    private final String archivo = "../Recursos/conectores.dat";
+    private final String archivo = "Recursos/conectores.dat";
 
     public GestionarConectores() {
         conectores = leerArchivo();

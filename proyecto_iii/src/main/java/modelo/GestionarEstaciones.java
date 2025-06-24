@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GestionarEstaciones implements IGestionar<EstacionServicioRecarga>, Serializable {
     private List<EstacionServicioRecarga> estaciones;
-    private final String archivo = "../Recursos/estaciones.dat";
+    private final String archivo = "Recursos/estaciones.dat";
 
     public GestionarEstaciones() {
         estaciones = leerArchivo();
