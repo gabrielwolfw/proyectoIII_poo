@@ -2,21 +2,50 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.GUI.poiii;
+package vista;
 
 /**
  *
  * @author mishe
  */
+
+import modelo.GestionarCiudades;
+import modelo.Ciudad;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
+
+
 public class FrmCiudades extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Ciudades
-     */
+    // 1. Añadir campo para el gestor y la lista visual
+    private GestionarCiudades gestionarCiudades;
+    private JList<Ciudad> listCiudades;
+
     public FrmCiudades() {
         initComponents();
-    }
 
+        // 2. Instanciar el gestor y la JList
+        gestionarCiudades = new GestionarCiudades();
+        listCiudades      = new JList<>();
+
+        // 3. Cargar datos desde el gestor al modelo de la lista
+        DefaultListModel<Ciudad> model = new DefaultListModel<>();
+        for (Ciudad c : gestionarCiudades.mostrarTodos()) {
+            model.addElement(c);
+        }
+        listCiudades.setModel(model);
+
+        // 4. Añadir la lista dentro de jPanel1 con scroll y BorderLayout
+        jPanel1.setLayout(new BorderLayout());
+        jPanel1.add(new JScrollPane(listCiudades), BorderLayout.CENTER);
+
+        // 5. Refrescar el panel para que se vea inmediatamente
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

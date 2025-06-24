@@ -2,19 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.GUI.poiii;
+package vista;
 
 /**
  *
  * @author mishe
  */
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+
 public class VentanaLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    private Map<String, String> users = new HashMap<>();
+     
     public VentanaLogin() {
         initComponents();
+
+        users.put("admin", "0123");
+        users.put("Mishelle", "0123");
     }
 
     /*
@@ -56,7 +63,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Correo Electrónico");
+        jLabel1.setText("Nombre");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Contraseña");
@@ -145,8 +152,25 @@ public class VentanaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
-        ventanaPrincipal.setVisible(true);
+         // Leer datos de ingreso
+        String usuario = txtCorreo.getText().trim();
+        String contra  = new String(txtContra.getPassword());
+
+        // Validar contra el mapa
+        if (users.containsKey(usuario) && users.get(usuario).equals(contra)) {
+            // Credenciales correctas: abrir ventana principal
+            VentanaPrincipal vp = new VentanaPrincipal();
+            vp.setVisible(true);
+            this.dispose();
+        } else {
+            // Credenciales incorrectas: mensaje de error
+            JOptionPane.showMessageDialog(
+                this,
+                "Usuario o contraseña incorrecta",
+                "Error de autenticación",
+                JOptionPane.ERROR_MESSAGE
+            );       
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**

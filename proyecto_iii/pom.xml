@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>Main</groupId>
-    <artifactId>proyecto_iii</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>23</maven.compiler.release>
-        <exec.mainClass>main.proyecto_iii.Proyecto_iii</exec.mainClass>
-    </properties>
+<project 
+    xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                        http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>Main</groupId>
+  <artifactId>proyecto_iii</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <!-- Codificación y versión de Java -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>21</maven.compiler.release>
+
+    <!-- Clase con método main -->
+    <mainClass>vista.VentanaLogin</mainClass>
+  </properties>
+
+  <build>
+    <!-- Recurso estándar más tu carpeta de assets -->
+    <resources>
+      <!-- Carpeta normal de recursos -->
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <!-- Incluir PNGs de src/main/java/assets y volcarlos en classpath/assets -->
+      <resource>
+        <directory>src/main/java/assets</directory>
+        <includes>
+          <include>**/*.png</include>
+        </includes>
+        <targetPath>assets</targetPath>
+      </resource>
+    </resources>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+        </configuration>
+      </plugin>
+
+      <!-- Permite ejecutar con mvn exec:java -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <mainClass>${mainClass}</mainClass>
+        </configuration>
+      </plugin>
+
+      <!-- Empaqueta el JAR con manifest apuntando a la clase principal -->
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${mainClass}</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
