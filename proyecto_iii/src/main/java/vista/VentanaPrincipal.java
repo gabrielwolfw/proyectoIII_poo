@@ -7,17 +7,22 @@ package vista;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
+import controlador.*;
+
 
 /**
  *
  * @author mishe
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+    private ControladorApp controlador = new ControladorApp();
+    private ControladorAcceso controladorA = new ControladorAcceso();
 
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
+        
         initComponents();
     }
 

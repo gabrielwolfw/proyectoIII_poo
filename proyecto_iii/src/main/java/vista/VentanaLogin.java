@@ -10,12 +10,14 @@ package vista;
  */
 
 import controlador.ControladorApp;
+import controlador.ControladorAcceso;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class VentanaLogin extends javax.swing.JFrame {
     private ControladorApp controlador = new ControladorApp();
+    private ControladorAcceso controladorA = new ControladorAcceso();
     private Map<String, String> users = new HashMap<>();
      
     public VentanaLogin() {
@@ -148,7 +150,7 @@ public class VentanaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-            Frm_Register ventana = new Frm_Register(controlador);
+            Frm_Register ventana = new Frm_Register(controladorA);
     ventana.setVisible(true);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
